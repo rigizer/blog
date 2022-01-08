@@ -16,9 +16,11 @@ app.set('views', __dirname + '/views');                 // __dirname 시스템 �
 app.use(bodyParser.urlencoded({extended: true}));       // POST 요청을 처리하는 기능(미들웨어)을 확장
 
 // Routes
-app.use('/', require('./routes/home/home'));
-app.use('/test', require('./routes/test/test'));
-app.use('/admin', require('./routes/admin/admin'));
+const routes = require('./routes');
+app.use('/blog', routes);
+app.use('/', (req, res) => {
+    res.redirect('blog');
+});
 
 app.use(expressErrorHandler.httpError(404));
 app.use(expressErrorHandler.httpError(500));
