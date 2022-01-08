@@ -18,9 +18,11 @@ app.use(bodyParser.urlencoded({extended: true}));       // POST 요청을 처리
 // Routes
 const routes = require('./routes');
 app.use('/blog', routes);
-app.use('/', (req, res) => {
-    res.redirect('blog');
-});
+app.use('/', 
+    routes.get('/', (req, res) => {
+        res.redirect('/blog');
+    })
+);
 
 app.use(expressErrorHandler.httpError(404));
 app.use(expressErrorHandler.httpError(500));
