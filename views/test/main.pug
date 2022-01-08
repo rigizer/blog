@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        title Rigizer:: Test
+
+    body
+        div test
+        table(border=1)
+            thead
+                tr
+                    th ID
+                    th NAME
+                    th REG_DT
+                    th UPT_DT
+            tbody
+                each t in model.test 
+                    tr
+                        td #{t.ID}
+                        td #{t.NAME}
+                        td #{t.REG_DT}
+                        td #{t.UPT_DT}
