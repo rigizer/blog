@@ -1,4 +1,5 @@
 const express = require('express');
+const swig = require('swig-templates');
 const bodyParser = require('body-parser');      // POST 요청 처리
 const app = express();                          // Node.js Express
 
@@ -11,8 +12,13 @@ const errorHandler = expressErrorHandler({
 });
 
 // Other Settings
-app.set('view engine', 'pug');                          // 템플릿 엔진 설정
-app.set('views', __dirname + '/views');                 // __dirname 시스템 변수: request.getContextPath();
+app.set('view engine', 'html');                          // 템플릿 엔진 설정
+app.engine('html', swig.renderFile);
+
+app.set('views', __dirname + '/views');
+app.set('view cache', false);
+swig.setDefaults({cache: false});
+
 app.use(bodyParser.urlencoded({extended: true}));       // POST 요청을 처리하는 기능(미들웨어)을 확장
 
 // Routes
@@ -30,6 +36,6 @@ app.use(errorHandler);
 
 // Server Port Setting
 const port = 8000;
-app.listen(port, function() {
+app.listen(port, () => {
     console.log('SERVER ON! PORT: ' + port);
 });

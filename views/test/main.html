@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rigizer:: Test</title>
+</head>
+<body>
+    <div>test</div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>REG_DT</th>
+                <th>UPT_DT</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in model.test %}
+            <tr>
+                <td>{{ t.ID }}</td>
+                <td>{{ t.NAME }}</td>
+                <td>{{ t.REG_DT }}</td>
+                <td>{{ t.UPT_DT }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
