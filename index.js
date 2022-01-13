@@ -29,6 +29,7 @@ app.use('/',
         res.redirect('/blog');
     })
 );
+app.use('/public', express.static(__dirname + '/public'));
 
 app.use(expressErrorHandler.httpError(404));
 app.use(expressErrorHandler.httpError(500));
