@@ -1,21 +1,17 @@
 const moment = require('moment');
 
-exports.currentDate = function() {
-    const today = moment().format('YYYY-MM-DD HH:mm:ss');
-    return today;
+exports.currentDate = () => {
+    return moment().format('YYYY-MM-DD HH:mm:ss');
 }
 
-exports.currentDay = function() {
-    const today = moment().format('YYYY-MM-DD');
-    return today;
+exports.currentDay = () => {
+    return moment().format('YYYY-MM-DD');
 }
 
-exports.collectDay = function() {
-    const today = moment().format('YYYYMMDD');
-    return today;
+exports.collectDay = () => {
+    return moment().format('YYYYMMDD');
 }
 
-exports.currentTime = function() {
-    const time = moment().format('HH:mm:ss');
-    return time;
+exports.currentTime = () => {
+    return moment().format('HH:mm:ss');
 }
